@@ -38,9 +38,15 @@ def main() -> int:
     splits_dir = Path(cfg["splits_dir"])
 
     # ---------- 입력 수집 ----------
-    exps = sorted((json.loads((p / "metrics.json").read_text(encoding="utf-8"))
-                   for p in runs.glob("EXP_C_*") if (p / "metrics.json").exists()),
+    # 이 문서는 P1~P3(해상도 ablation) 범위다. Stage 1 변형(prep/aug)이 섞이면
+    # 해상도 비교표가 왜곡되므로 기본 설정 실험만 고른다.
+    _all = [json.loads((p / "metrics.json").read_text(encoding="utf-8"))
+            for p in runs.glob("EXP_C_*") if (p / "metrics.json").exists()]
+    exps = sorted([m for m in _all
+                   if not m["config"].get("prep")
+                   and m["config"].get("aug", "medium") == "medium"],
                   key=lambda m: -m["config"]["res"])
+    _excluded = [m["exp_id"] for m in _all if m not in exps]
     if not exps:
         print("EXP_C_* 결과 없음")
         return 1
@@ -100,6 +106,26 @@ def main() -> int:
     A("- 범위: P1 데이터 준비 · P2 Track C 기준선 · P3 A1(해상도) ablation")
     A("- 미포함: Track A(YOLO) · Track B(비지도) — GPU 미확보로 연기(§2.2 대안 (c))")
     A("")
+    A("> ## 이 문서의 범위 주의")
+    A("> ")
+    A("> **이 문서는 P1~P3 시점 기준이다.** 이후 수행한 아래 작업은 포함돼 있지 않다.")
+    A("> ")
+    A("> | 이후 작업 | 문서 |")
+    A("> |---|---|")
+    A("> | **전체 진행 현황 (최신본)** | [`PROGRESS.md`](PROGRESS.md) |")
+    A("> | 데이터셋 환경 변수 실측 | [`dataset_variation_cable.md`](dataset_variation_cable.md) |")
+    A("> | Stage 0 합성 섭동 강건성 벤치마크 | [`robustness_cable.md`](robustness_cable.md) |")
+    A("> | Stage 1 처방 판정 기준 (사전 등록) | [`stage1_decision_criteria.md`](stage1_decision_criteria.md) |")
+    A("> | 제안 방법론 2건 분석 | [`연구후보_분석.md`](연구후보_분석.md) |")
+    A("> | 참조 문헌 10건 분석 | [`detection_참조_분석.md`](detection_참조_분석.md) |")
+    A("> ")
+    A("> 특히 **여기의 결론 중 일부는 이후 실측으로 수정됐다.** "
+      "본문 §7에서 권고한 256px 채택은 Stage 0 강건성 벤치 결과(섭동 하에서 640px가 일관되게 우수) "
+      "때문에 **보류 상태**다. 배포 해상도 결정은 Stage 1 완료 후에 내린다.")
+    A("")
+    if _excluded:
+        A(f"> 해상도 비교 표에서 제외한 실험(Stage 1 변형): {', '.join(f'`{e}`' for e in _excluded)}")
+        A("")
     A("## 0. 한 문단 요약")
     A("")
     if best_light:
@@ -365,6 +391,10 @@ def main() -> int:
     A("| 미검:과검 비용비 | P4 전 | §7.2 임계값 정책 |")
     A("| 판정 출력 형태 | Track A 착수 전 | 본선 트랙 확정 (multi/binary 라벨은 둘 다 준비됨) |")
     A("| GPU 확보 | Track A/B 착수 전 | 미확보 시 YOLO 5-fold 비현실적 |")
+    A("")
+    A("> **갱신 (Stage 0 이후)**: 아래 우선순위는 P3 시점 판단이다. "
+      "Stage 0에서 색바램·황변·정반사 축의 붕괴가 확인돼 강건성 처방(Stage 1)이 선행 과제가 됐다. "
+      "최신 우선순위는 `PROGRESS.md` 참조.")
     A("")
     A("### 7.2 기술 작업 후보")
     A("")

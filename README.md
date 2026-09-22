@@ -61,16 +61,24 @@ src/eval/           지표, 점수 재산출, 강건성 벤치, 지연 측정, �
 
 ### 주요 리포트
 
-| 문서 | 내용 |
-|---|---|
-| [`PROGRESS.md`](reports/PROGRESS.md) | 전체 진행 보고 |
-| [`SUMMARY_cable_trackC.md`](reports/SUMMARY_cable_trackC.md) | P1~P3 통합 리포트 |
-| [`robustness_cable.md`](reports/robustness_cable.md) | Stage 0 강건성 벤치마크 |
-| [`dataset_variation_cable.md`](reports/dataset_variation_cable.md) | 데이터셋 환경 변수 실측 |
-| [`ablation_A1_resolution.md`](reports/ablation_A1_resolution.md) | 입력 해상도 ablation |
-| [`연구후보_분석.md`](reports/연구후보_분석.md) | 제안 방법론 2건 분석 |
-| [`detection_참조_분석.md`](reports/detection_참조_분석.md) | 참조 문헌 10건 적용 가능성 분석 |
-| [`stage1_decision_criteria.md`](reports/stage1_decision_criteria.md) | Stage 1 판정 기준 (사전 등록) |
+**먼저 읽을 문서: [`reports/PROGRESS.md`](reports/PROGRESS.md)** — 전체 진행 현황의 최신본이다.
+다른 리포트는 특정 시점·특정 단계의 기록이므로, 서로 결론이 다를 때는 `PROGRESS.md`가 우선한다.
+
+| 문서 | 범위 | 비고 |
+|---|---|---|
+| **[`PROGRESS.md`](reports/PROGRESS.md)** | **전체 진행 (최신본)** | P0~Stage 1 + 문서 분석 + 미결사항 |
+| [`SUMMARY_cable_trackC.md`](reports/SUMMARY_cable_trackC.md) | P1~P3 통합 | **P1~P3 시점 기준.** Stage 0 이후 결과 미포함 |
+| [`dataset_variation_cable.md`](reports/dataset_variation_cable.md) | 데이터셋 환경 변수 실측 | 회전·조명·색바램 실측치 |
+| [`robustness_cable.md`](reports/robustness_cable.md) | Stage 0 강건성 벤치 | 7축 × 강도 × 3해상도 |
+| [`stage1_decision_criteria.md`](reports/stage1_decision_criteria.md) | Stage 1 판정 기준 | **결과 확인 전 사전 등록** |
+| [`ablation_A1_resolution.md`](reports/ablation_A1_resolution.md) | 입력 해상도 ablation | 640/384/256 |
+| [`track_c_results.md`](reports/track_c_results.md) | Track C 상세 | fold별 지표·점수 분포 |
+| [`연구후보_분석.md`](reports/연구후보_분석.md) | 제안 방법론 2건 분석 | `code_artifact.md` / `sota.md` |
+| [`detection_참조_분석.md`](reports/detection_참조_분석.md) | 참조 문헌 10건 분석 | 적용 가능성 + 서지 검증 |
+| [`P1_completion.md`](reports/P1_completion.md) 외 | P1 단계별 검증 | 무결성·라벨·분할 |
+
+> **주의**: `SUMMARY_cable_trackC.md` §7의 "256px 채택" 권고는 이후 Stage 0 강건성 결과
+> (섭동 하에서 640px가 일관되게 우수)로 **보류 상태**다. 배포 해상도는 Stage 1 완료 후 확정한다.
 
 ---
 

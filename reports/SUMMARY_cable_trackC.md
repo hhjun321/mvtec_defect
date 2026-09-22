@@ -5,6 +5,23 @@
 - 범위: P1 데이터 준비 · P2 Track C 기준선 · P3 A1(해상도) ablation
 - 미포함: Track A(YOLO) · Track B(비지도) — GPU 미확보로 연기(§2.2 대안 (c))
 
+> ## 이 문서의 범위 주의
+> 
+> **이 문서는 P1~P3 시점 기준이다.** 이후 수행한 아래 작업은 포함돼 있지 않다.
+> 
+> | 이후 작업 | 문서 |
+> |---|---|
+> | **전체 진행 현황 (최신본)** | [`PROGRESS.md`](PROGRESS.md) |
+> | 데이터셋 환경 변수 실측 | [`dataset_variation_cable.md`](dataset_variation_cable.md) |
+> | Stage 0 합성 섭동 강건성 벤치마크 | [`robustness_cable.md`](robustness_cable.md) |
+> | Stage 1 처방 판정 기준 (사전 등록) | [`stage1_decision_criteria.md`](stage1_decision_criteria.md) |
+> | 제안 방법론 2건 분석 | [`연구후보_분석.md`](연구후보_분석.md) |
+> | 참조 문헌 10건 분석 | [`detection_참조_분석.md`](detection_참조_분석.md) |
+> 
+> 특히 **여기의 결론 중 일부는 이후 실측으로 수정됐다.** 본문 §7에서 권고한 256px 채택은 Stage 0 강건성 벤치 결과(섭동 하에서 640px가 일관되게 우수) 때문에 **보류 상태**다. 배포 해상도 결정은 Stage 1 완료 후에 내린다.
+
+> 해상도 비교 표에서 제외한 실험(Stage 1 변형): `EXP_C_mnv3s_256_fp32_all_20260922_aug-robust`, `EXP_C_mnv3s_256_fp32_all_20260922_prep-grayspec`
+
 ## 0. 한 문단 요약
 
 MobileNetV3-Small 이진 분류(Track C)로 `cable` OK/NG 판정을 5-fold 교차검증했다. 입력 해상도 640 / 384 / 256px 전 조건에서 **미검율 0%**, AUROC 0.9992~0.9997로 차이가 없었다. DoD 정확도를 만족하는 최경량은 **256px** (0.16 GFLOPs, e2e p50 26.95ms, 파라미터 1.52M). 다만 모든 수치가 검증셋 기준이고 임계값 τ도 같은 검증셋에서 정해 **낙관적으로 편향**돼 있으며, fold당 불량 표본이 16장 수준이라 신뢰구간이 넓다. 또한 **τ가 fold/환경 간 이식되지 않는 문제**를 확인해 배포 시 재보정을 의무화했다.
@@ -187,6 +204,8 @@ bbox 변 길이 중앙값이 이미지 변의 17~48%로 **대형 객체**에 해
 | 미검:과검 비용비 | P4 전 | §7.2 임계값 정책 |
 | 판정 출력 형태 | Track A 착수 전 | 본선 트랙 확정 (multi/binary 라벨은 둘 다 준비됨) |
 | GPU 확보 | Track A/B 착수 전 | 미확보 시 YOLO 5-fold 비현실적 |
+
+> **갱신 (Stage 0 이후)**: 아래 우선순위는 P3 시점 판단이다. Stage 0에서 색바램·황변·정반사 축의 붕괴가 확인돼 강건성 처방(Stage 1)이 선행 과제가 됐다. 최신 우선순위는 `PROGRESS.md` 참조.
 
 ### 7.2 기술 작업 후보
 
