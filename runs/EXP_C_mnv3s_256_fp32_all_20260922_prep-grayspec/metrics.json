@@ -129,12 +129,13 @@
       "best_epoch": 10,
       "fold": 0,
       "checkpoint": "weights\\fold0_best.pt",
-      "prep_stats": {
-        "n": 8034,
-        "disk_fail": 0,
-        "rot_fail": 0,
-        "disk_fail_rate": 0.0,
-        "rot_fail_rate": 0.0
+      "score_stats": {
+        "NG_min": 0.03381477668881416,
+        "NG_median": 0.8397283554077148,
+        "OK_max": 0.006952695082873106,
+        "OK_median": 1.0507284059713129e-05,
+        "separated": true,
+        "gap_log10": 0.6869533658027649
       }
     },
     {
@@ -210,12 +211,13 @@
       "best_epoch": 20,
       "fold": 1,
       "checkpoint": "weights\\fold1_best.pt",
-      "prep_stats": {
-        "n": 11124,
-        "disk_fail": 0,
-        "rot_fail": 0,
-        "disk_fail_rate": 0.0,
-        "rot_fail_rate": 0.0
+      "score_stats": {
+        "NG_min": 0.00011514420475577936,
+        "NG_median": 0.9970843195915222,
+        "OK_max": 0.00011083088611485437,
+        "OK_median": 1.4824739213992189e-09,
+        "separated": true,
+        "gap_log10": 0.016581278294324875
       }
     },
     {
@@ -291,12 +293,13 @@
       "best_epoch": 15,
       "fold": 2,
       "checkpoint": "weights\\fold2_best.pt",
-      "prep_stats": {
-        "n": 9579,
-        "disk_fail": 0,
-        "rot_fail": 0,
-        "disk_fail_rate": 0.0,
-        "rot_fail_rate": 0.0
+      "score_stats": {
+        "NG_min": 0.02897261641919613,
+        "NG_median": 0.9840333461761475,
+        "OK_max": 0.026747852563858032,
+        "OK_median": 3.416551663804057e-08,
+        "separated": true,
+        "gap_log10": 0.03469879552721977
       }
     },
     {
@@ -372,12 +375,13 @@
       "best_epoch": 16,
       "fold": 3,
       "checkpoint": "weights\\fold3_best.pt",
-      "prep_stats": {
-        "n": 9888,
-        "disk_fail": 0,
-        "rot_fail": 0,
-        "disk_fail_rate": 0.0,
-        "rot_fail_rate": 0.0
+      "score_stats": {
+        "NG_min": 0.001007981481961906,
+        "NG_median": 0.9994863271713257,
+        "OK_max": 0.48254358768463135,
+        "OK_median": 2.430969061606447e-07,
+        "separated": false,
+        "gap_log10": null
       }
     },
     {
@@ -453,12 +457,13 @@
       "best_epoch": 16,
       "fold": 4,
       "checkpoint": "weights\\fold4_best.pt",
-      "prep_stats": {
-        "n": 9888,
-        "disk_fail": 0,
-        "rot_fail": 0,
-        "disk_fail_rate": 0.0,
-        "rot_fail_rate": 0.0
+      "score_stats": {
+        "NG_min": 0.0002778438793029636,
+        "NG_median": 0.12730148434638977,
+        "OK_max": 0.0003021495940629393,
+        "OK_median": 2.5766553335415665e-08,
+        "separated": false,
+        "gap_log10": null
       }
     }
   ],
@@ -672,5 +677,15 @@
       ]
     }
   },
-  "wall_clock_sec": 4076.6
+  "wall_clock_sec": 4076.6,
+  "rescored": {
+    "note": "체크포인트로 val 점수 재산출, τ에 마진 tie-break 적용",
+    "scores_saved": [
+      "scores_fold0.json",
+      "scores_fold1.json",
+      "scores_fold2.json",
+      "scores_fold3.json",
+      "scores_fold4.json"
+    ]
+  }
 }

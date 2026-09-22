@@ -1,5 +1,5 @@
 {
-  "exp_id": "EXP_C_mnv3s_256_fp32_all_20260922_aug-robust",
+  "exp_id": "EXP_C_mnv3s_256_fp32_all_20260922_prep-grayspec_aug-robust",
   "track": "C",
   "date": "2026-09-22",
   "config": {
@@ -13,8 +13,8 @@
     "weight_decay": 0.0005,
     "warmup_epochs": 3,
     "aug": "robust",
-    "prep": "",
-    "src_res": 256,
+    "prep": "gray+spec",
+    "src_res": 640,
     "pretrained": true,
     "class_weight": false,
     "workers": 0,
@@ -23,7 +23,7 @@
     "seed": 42,
     "n_folds": 5,
     "track": "C_binary_classification",
-    "exp_id": "EXP_C_mnv3s_256_fp32_all_20260922_aug-robust",
+    "exp_id": "EXP_C_mnv3s_256_fp32_all_20260922_prep-grayspec_aug-robust",
     "splits": {
       "fold0": "e49ccc6119d2",
       "fold1": "b1e3cb1d0b67",
@@ -40,18 +40,18 @@
     "latency_model_only": {
       "warmup": 10,
       "iters": 50,
-      "p50_ms": 19.55,
-      "p95_ms": 26.77,
-      "mean_ms": 20.03,
-      "min_ms": 14.41
+      "p50_ms": 24.09,
+      "p95_ms": 34.16,
+      "mean_ms": 23.71,
+      "min_ms": 14.8
     },
     "latency_end_to_end": {
       "warmup": 10,
       "iters": 50,
-      "p50_ms": 24.88,
-      "p95_ms": 29.69,
-      "mean_ms": 25.3,
-      "min_ms": 20.01
+      "p50_ms": 48.0,
+      "p95_ms": 59.97,
+      "mean_ms": 49.57,
+      "min_ms": 41.13
     },
     "note": "end_to_end = 1024px 원본 → 센서 해상도 리사이즈 + 전처리 + 모델 입력 리사이즈 + 정규화 + 추론. 개발 머신(CPU) 측정치이며 타깃 하드웨어 수치가 아니다(§9.3)."
   },
@@ -60,7 +60,7 @@
       "n": 63,
       "n_NG": 16,
       "n_OK": 47,
-      "tau": 2.215835502656302e-05,
+      "tau": 0.07563671422736631,
       "auroc": 1.0,
       "auprc": 1.0,
       "miss_rate": 0.0,
@@ -78,11 +78,11 @@
         "policy": "FPR<=0.05",
         "fpr_at_tau": 0.0,
         "tpr_at_tau": 1.0,
-        "tau_roc": 4.3616040784399956e-05,
+        "tau_roc": 0.09759204089641571,
         "margin_tiebreak": true,
-        "gap_low": 1.1257158803346101e-05,
-        "gap_high": 4.3616040784399956e-05,
-        "gap_log10_width": 0.5882174475832248
+        "gap_low": 0.05862068757414818,
+        "gap_high": 0.09759204089641571,
+        "gap_log10_width": 0.22136349223062599
       },
       "per_class_recall": {
         "bent_wire": {
@@ -126,23 +126,23 @@
           "recall": 1.0
         }
       },
-      "best_epoch": 6,
+      "best_epoch": 14,
       "fold": 0,
       "checkpoint": "weights\\fold0_best.pt",
       "score_stats": {
-        "NG_min": 4.3616040784399956e-05,
-        "NG_median": 0.32295191287994385,
-        "OK_max": 1.1257158803346101e-05,
-        "OK_median": 1.529586626247692e-07,
+        "NG_min": 0.09759204089641571,
+        "NG_median": 0.9962954521179199,
+        "OK_max": 0.05862068757414818,
+        "OK_median": 0.0031190253794193268,
         "separated": true,
-        "gap_log10": 0.5882174372673035
+        "gap_log10": 0.22136348485946655
       }
     },
     {
       "n": 62,
       "n_NG": 15,
       "n_OK": 47,
-      "tau": 0.0212654708516202,
+      "tau": 0.031784302348092146,
       "auroc": 1.0,
       "auprc": 1.0,
       "miss_rate": 0.0,
@@ -160,11 +160,11 @@
         "policy": "FPR<=0.05",
         "fpr_at_tau": 0.0,
         "tpr_at_tau": 1.0,
-        "tau_roc": 0.024468256160616875,
+        "tau_roc": 0.09196710586547852,
         "margin_tiebreak": true,
-        "gap_low": 0.018481915816664696,
-        "gap_high": 0.024468256160616875,
-        "gap_log10_width": 0.1218560307784263
+        "gap_low": 0.010984817519783974,
+        "gap_high": 0.09196710586547852,
+        "gap_log10_width": 0.922839672984892
       },
       "per_class_recall": {
         "bent_wire": {
@@ -208,23 +208,23 @@
           "recall": 1.0
         }
       },
-      "best_epoch": 29,
+      "best_epoch": 25,
       "fold": 1,
       "checkpoint": "weights\\fold1_best.pt",
       "score_stats": {
-        "NG_min": 0.024468256160616875,
-        "NG_median": 0.9996065497398376,
-        "OK_max": 0.018481915816664696,
-        "OK_median": 3.3662476198514923e-05,
+        "NG_min": 0.09196710586547852,
+        "NG_median": 0.9888458847999573,
+        "OK_max": 0.010984817519783974,
+        "OK_median": 2.1692556401831098e-05,
         "separated": true,
-        "gap_log10": 0.12185603380203247
+        "gap_log10": 0.9228397011756897
       }
     },
     {
       "n": 62,
       "n_NG": 15,
       "n_OK": 47,
-      "tau": 0.4828044853123314,
+      "tau": 0.0003071008013124958,
       "auroc": 1.0,
       "auprc": 1.0,
       "miss_rate": 0.0,
@@ -242,11 +242,11 @@
         "policy": "FPR<=0.05",
         "fpr_at_tau": 0.0,
         "tpr_at_tau": 1.0,
-        "tau_roc": 0.5045323371887207,
+        "tau_roc": 0.013173685409128666,
         "margin_tiebreak": true,
-        "gap_low": 0.4620123505592346,
-        "gap_high": 0.5045323371887207,
-        "gap_log10_width": 0.038235421557580904
+        "gap_low": 7.159037068049656e-06,
+        "gap_high": 0.013173685409128666,
+        "gap_log10_width": 3.2648526770566337
       },
       "per_class_recall": {
         "bent_wire": {
@@ -290,25 +290,107 @@
           "recall": 1.0
         }
       },
-      "best_epoch": 12,
+      "best_epoch": 13,
       "fold": 2,
       "checkpoint": "weights\\fold2_best.pt",
       "score_stats": {
-        "NG_min": 0.5045323371887207,
-        "NG_median": 0.9954566955566406,
-        "OK_max": 0.4620123505592346,
-        "OK_median": 0.0016015688888728619,
+        "NG_min": 0.013173685409128666,
+        "NG_median": 0.978886604309082,
+        "OK_max": 7.159037068049656e-06,
+        "OK_median": 2.2556293638453795e-11,
         "separated": true,
-        "gap_log10": 0.038235440850257874
+        "gap_log10": 3.26485276222229
       }
     },
     {
       "n": 61,
       "n_NG": 15,
       "n_OK": 46,
-      "tau": 0.0019156592801957,
-      "auroc": 0.9884057971014493,
-      "auprc": 0.96510989010989,
+      "tau": 0.13043865621842332,
+      "auroc": 1.0,
+      "auprc": 1.0,
+      "miss_rate": 0.0,
+      "overkill_rate": 0.0,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "balanced_acc": 1.0,
+      "recall_at_fpr5": 1.0,
+      "tp": 15,
+      "fn": 0,
+      "fp": 0,
+      "tn": 46,
+      "threshold_policy": {
+        "policy": "FPR<=0.05",
+        "fpr_at_tau": 0.0,
+        "tpr_at_tau": 1.0,
+        "tau_roc": 0.2489045411348343,
+        "margin_tiebreak": true,
+        "gap_low": 0.06835649907588959,
+        "gap_high": 0.2489045411348343,
+        "gap_log10_width": 0.561253008225398
+      },
+      "per_class_recall": {
+        "bent_wire": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cable_swap": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "combined": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cut_inner_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cut_outer_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "missing_cable": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "missing_wire": {
+          "n": 1,
+          "detected": 1,
+          "recall": 1.0
+        },
+        "poke_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        }
+      },
+      "best_epoch": 13,
+      "fold": 3,
+      "checkpoint": "weights\\fold3_best.pt",
+      "score_stats": {
+        "NG_min": 0.2489045411348343,
+        "NG_median": 0.9992268085479736,
+        "OK_max": 0.06835649907588959,
+        "OK_median": 0.002987492363899946,
+        "separated": true,
+        "gap_log10": 0.561253011226654
+      }
+    },
+    {
+      "n": 61,
+      "n_NG": 15,
+      "n_OK": 46,
+      "tau": 0.1345717924305341,
+      "auroc": 0.9898550724637681,
+      "auprc": 0.9728696741854637,
       "miss_rate": 0.06666666666666667,
       "overkill_rate": 0.043478260869565216,
       "recall": 0.9333333333333333,
@@ -324,11 +406,11 @@
         "policy": "FPR<=0.05",
         "fpr_at_tau": 0.043478260869565216,
         "tpr_at_tau": 0.9333333333333333,
-        "tau_roc": 0.0019235516665503383,
+        "tau_roc": 0.16989195346832275,
         "margin_tiebreak": true,
-        "gap_low": 0.001907799276523292,
-        "gap_high": 0.0019235516665503383,
-        "gap_log10_width": 0.0035711761805586346
+        "gap_low": 0.10659461468458176,
+        "gap_high": 0.16989195346832275,
+        "gap_log10_width": 0.20243754596823416
       },
       "per_class_recall": {
         "bent_wire": {
@@ -372,96 +454,14 @@
           "recall": 1.0
         }
       },
-      "best_epoch": 11,
-      "fold": 3,
-      "checkpoint": "weights\\fold3_best.pt",
-      "score_stats": {
-        "NG_min": 0.0009436170221306384,
-        "NG_median": 0.8465931415557861,
-        "OK_max": 0.0887899249792099,
-        "OK_median": 1.5222552065097261e-05,
-        "separated": false,
-        "gap_log10": null
-      }
-    },
-    {
-      "n": 61,
-      "n_NG": 15,
-      "n_OK": 46,
-      "tau": 0.002598507167142897,
-      "auroc": 0.9971014492753624,
-      "auprc": 0.9913888888888889,
-      "miss_rate": 0.0,
-      "overkill_rate": 0.021739130434782608,
-      "recall": 1.0,
-      "precision": 0.9375,
-      "f1": 0.967741935483871,
-      "balanced_acc": 0.9891304347826086,
-      "recall_at_fpr5": 1.0,
-      "tp": 15,
-      "fn": 0,
-      "fp": 1,
-      "tn": 45,
-      "threshold_policy": {
-        "policy": "FPR<=0.05",
-        "fpr_at_tau": 0.021739130434782608,
-        "tpr_at_tau": 1.0,
-        "tau_roc": 0.00855172611773014,
-        "margin_tiebreak": true,
-        "gap_low": 0.0007895762100815773,
-        "gap_high": 0.00855172611773014,
-        "gap_log10_width": 1.0346597288972288
-      },
-      "per_class_recall": {
-        "bent_wire": {
-          "n": 2,
-          "detected": 2,
-          "recall": 1.0
-        },
-        "cable_swap": {
-          "n": 2,
-          "detected": 2,
-          "recall": 1.0
-        },
-        "combined": {
-          "n": 2,
-          "detected": 2,
-          "recall": 1.0
-        },
-        "cut_inner_insulation": {
-          "n": 2,
-          "detected": 2,
-          "recall": 1.0
-        },
-        "cut_outer_insulation": {
-          "n": 2,
-          "detected": 2,
-          "recall": 1.0
-        },
-        "missing_cable": {
-          "n": 2,
-          "detected": 2,
-          "recall": 1.0
-        },
-        "missing_wire": {
-          "n": 1,
-          "detected": 1,
-          "recall": 1.0
-        },
-        "poke_insulation": {
-          "n": 2,
-          "detected": 2,
-          "recall": 1.0
-        }
-      },
-      "best_epoch": 17,
+      "best_epoch": 16,
       "fold": 4,
       "checkpoint": "weights\\fold4_best.pt",
       "score_stats": {
-        "NG_min": 0.00855172611773014,
-        "NG_median": 0.9467263221740723,
-        "OK_max": 0.02887483686208725,
-        "OK_median": 2.697726358746877e-06,
+        "NG_min": 0.046663932502269745,
+        "NG_median": 0.9438799023628235,
+        "OK_max": 0.6349414587020874,
+        "OK_median": 0.0005558362463489175,
         "separated": false,
         "gap_log10": null
       }
@@ -469,25 +469,25 @@
   ],
   "aggregate": {
     "auroc": {
-      "mean": 0.9971014492753623,
-      "std": 0.004490415473863674,
+      "mean": 0.9979710144927536,
+      "std": 0.004057971014492745,
       "values": [
         1.0,
         1.0,
         1.0,
-        0.9884057971014493,
-        0.9971014492753624
+        1.0,
+        0.9898550724637681
       ]
     },
     "auprc": {
-      "mean": 0.9912997557997556,
-      "std": 0.01351295494695691,
+      "mean": 0.9945739348370928,
+      "std": 0.010852130325814535,
       "values": [
         1.0,
         1.0,
         1.0,
-        0.96510989010989,
-        0.9913888888888889
+        1.0,
+        0.9728696741854637
       ]
     },
     "miss_rate": {
@@ -497,19 +497,19 @@
         0.0,
         0.0,
         0.0,
-        0.06666666666666667,
-        0.0
+        0.0,
+        0.06666666666666667
       ]
     },
     "overkill_rate": {
-      "mean": 0.013043478260869565,
+      "mean": 0.008695652173913044,
       "std": 0.017391304347826087,
       "values": [
         0.0,
         0.0,
         0.0,
-        0.043478260869565216,
-        0.021739130434782608
+        0.0,
+        0.043478260869565216
       ]
     },
     "recall": {
@@ -519,41 +519,41 @@
         1.0,
         1.0,
         1.0,
-        0.9333333333333333,
-        1.0
+        1.0,
+        0.9333333333333333
       ]
     },
     "precision": {
-      "mean": 0.9625,
-      "std": 0.05,
+      "mean": 0.975,
+      "std": 0.049999999999999996,
       "values": [
         1.0,
         1.0,
         1.0,
-        0.875,
-        0.9375
+        1.0,
+        0.875
       ]
     },
     "f1": {
-      "mean": 0.9741935483870968,
-      "std": 0.03761904448287291,
+      "mean": 0.9806451612903226,
+      "std": 0.03870967741935485,
       "values": [
         1.0,
         1.0,
         1.0,
-        0.9032258064516129,
-        0.967741935483871
+        1.0,
+        0.9032258064516129
       ]
     },
     "balanced_acc": {
-      "mean": 0.9868115942028985,
-      "std": 0.021360961945382836,
+      "mean": 0.9889855072463767,
+      "std": 0.022028985507246367,
       "values": [
         1.0,
         1.0,
         1.0,
-        0.9449275362318841,
-        0.9891304347826086
+        1.0,
+        0.9449275362318841
       ]
     },
     "recall_at_fpr5": {
@@ -563,19 +563,19 @@
         1.0,
         1.0,
         1.0,
-        0.9333333333333333,
-        1.0
+        1.0,
+        0.9333333333333333
       ]
     },
     "tau": {
-      "mean": 0.10172125619326336,
-      "std": 0.19069700782211393,
+      "mean": 0.07454771320514568,
+      "std": 0.053043852347319016,
       "values": [
-        2.215835502656302e-05,
-        0.0212654708516202,
-        0.4828044853123314,
-        0.0019156592801957,
-        0.002598507167142897
+        0.07563671422736631,
+        0.031784302348092146,
+        0.0003071008013124958,
+        0.13043865621842332,
+        0.1345717924305341
       ]
     }
   },
@@ -600,8 +600,8 @@
         1.0,
         1.0,
         1.0,
-        0.5,
-        1.0
+        1.0,
+        0.5
       ]
     },
     "combined": {
@@ -677,7 +677,7 @@
       ]
     }
   },
-  "wall_clock_sec": 2460.0,
+  "wall_clock_sec": 5734.4,
   "rescored": {
     "note": "체크포인트로 val 점수 재산출, τ에 마진 tie-break 적용",
     "scores_saved": [
