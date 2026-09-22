@@ -1,0 +1,25 @@
+arch: mobilenet_v3_small
+res: 640
+fold: all
+epochs: 50
+patience: 15
+batch: 16
+lr: 0.001
+weight_decay: 0.0005
+warmup_epochs: 3
+aug: medium
+pretrained: true
+class_weight: false
+workers: 0
+threads: 12
+tag: ''
+seed: 42
+n_folds: 5
+track: C_binary_classification
+exp_id: EXP_C_mnv3s_640_fp32_all_20260921
+splits:
+  fold0: e49ccc6119d2
+  fold1: b1e3cb1d0b67
+  fold2: 402214d6780d
+  fold3: c54e2e4cf088
+  fold4: 0a2aa51b57b0

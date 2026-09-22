@@ -1,0 +1,676 @@
+{
+  "exp_id": "EXP_C_mnv3s_256_fp32_all_20260922_prep-grayspec",
+  "track": "C",
+  "date": "2026-09-22",
+  "config": {
+    "arch": "mobilenet_v3_small",
+    "res": 256,
+    "fold": "all",
+    "epochs": 50,
+    "patience": 15,
+    "batch": 16,
+    "lr": 0.001,
+    "weight_decay": 0.0005,
+    "warmup_epochs": 3,
+    "aug": "medium",
+    "prep": "gray+spec",
+    "src_res": 640,
+    "pretrained": true,
+    "class_weight": false,
+    "workers": 0,
+    "threads": 12,
+    "tag": "",
+    "seed": 42,
+    "n_folds": 5,
+    "track": "C_binary_classification",
+    "exp_id": "EXP_C_mnv3s_256_fp32_all_20260922_prep-grayspec",
+    "splits": {
+      "fold0": "e49ccc6119d2",
+      "fold1": "b1e3cb1d0b67",
+      "fold2": "402214d6780d",
+      "fold3": "c54e2e4cf088",
+      "fold4": "0a2aa51b57b0"
+    }
+  },
+  "hardware": {
+    "params": 1519906,
+    "params_M": 1.52,
+    "gflops": 0.16,
+    "fp32_size_MB": 6.08,
+    "latency_model_only": {
+      "warmup": 10,
+      "iters": 50,
+      "p50_ms": 17.45,
+      "p95_ms": 26.99,
+      "mean_ms": 18.39,
+      "min_ms": 13.61
+    },
+    "latency_end_to_end": {
+      "warmup": 10,
+      "iters": 50,
+      "p50_ms": 48.78,
+      "p95_ms": 54.56,
+      "mean_ms": 48.03,
+      "min_ms": 41.08
+    },
+    "note": "end_to_end = 1024px 원본 → 센서 해상도 리사이즈 + 전처리 + 모델 입력 리사이즈 + 정규화 + 추론. 개발 머신(CPU) 측정치이며 타깃 하드웨어 수치가 아니다(§9.3)."
+  },
+  "folds": [
+    {
+      "n": 63,
+      "n_NG": 16,
+      "n_OK": 47,
+      "tau": 0.015333095956550013,
+      "auroc": 1.0,
+      "auprc": 1.0,
+      "miss_rate": 0.0,
+      "overkill_rate": 0.0,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "balanced_acc": 1.0,
+      "recall_at_fpr5": 1.0,
+      "tp": 16,
+      "fn": 0,
+      "fp": 0,
+      "tn": 47,
+      "threshold_policy": {
+        "policy": "FPR<=0.05",
+        "fpr_at_tau": 0.0,
+        "tpr_at_tau": 1.0,
+        "tau_roc": 0.03381477668881416,
+        "margin_tiebreak": true,
+        "gap_low": 0.006952695082873106,
+        "gap_high": 0.03381477668881416,
+        "gap_log10_width": 0.6869533403093792
+      },
+      "per_class_recall": {
+        "bent_wire": {
+          "n": 3,
+          "detected": 3,
+          "recall": 1.0
+        },
+        "cable_swap": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "combined": {
+          "n": 1,
+          "detected": 1,
+          "recall": 1.0
+        },
+        "cut_inner_insulation": {
+          "n": 3,
+          "detected": 3,
+          "recall": 1.0
+        },
+        "cut_outer_insulation": {
+          "n": 1,
+          "detected": 1,
+          "recall": 1.0
+        },
+        "missing_cable": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "missing_wire": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "poke_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        }
+      },
+      "best_epoch": 10,
+      "fold": 0,
+      "checkpoint": "weights\\fold0_best.pt",
+      "prep_stats": {
+        "n": 8034,
+        "disk_fail": 0,
+        "rot_fail": 0,
+        "disk_fail_rate": 0.0,
+        "rot_fail_rate": 0.0
+      }
+    },
+    {
+      "n": 62,
+      "n_NG": 15,
+      "n_OK": 47,
+      "tau": 0.00011296696085171653,
+      "auroc": 1.0,
+      "auprc": 1.0,
+      "miss_rate": 0.0,
+      "overkill_rate": 0.0,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "balanced_acc": 1.0,
+      "recall_at_fpr5": 1.0,
+      "tp": 15,
+      "fn": 0,
+      "fp": 0,
+      "tn": 47,
+      "threshold_policy": {
+        "policy": "FPR<=0.05",
+        "fpr_at_tau": 0.0,
+        "tpr_at_tau": 1.0,
+        "tau_roc": 0.00011514420475577936,
+        "margin_tiebreak": true,
+        "gap_low": 0.00011083088611485437,
+        "gap_high": 0.00011514420475577936,
+        "gap_log10_width": 0.016581279152724563
+      },
+      "per_class_recall": {
+        "bent_wire": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cable_swap": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "combined": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cut_inner_insulation": {
+          "n": 3,
+          "detected": 3,
+          "recall": 1.0
+        },
+        "cut_outer_insulation": {
+          "n": 1,
+          "detected": 1,
+          "recall": 1.0
+        },
+        "missing_cable": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "missing_wire": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "poke_insulation": {
+          "n": 1,
+          "detected": 1,
+          "recall": 1.0
+        }
+      },
+      "best_epoch": 20,
+      "fold": 1,
+      "checkpoint": "weights\\fold1_best.pt",
+      "prep_stats": {
+        "n": 11124,
+        "disk_fail": 0,
+        "rot_fail": 0,
+        "disk_fail_rate": 0.0,
+        "rot_fail_rate": 0.0
+      }
+    },
+    {
+      "n": 62,
+      "n_NG": 15,
+      "n_OK": 47,
+      "tau": 0.02783801847060725,
+      "auroc": 1.0,
+      "auprc": 1.0,
+      "miss_rate": 0.0,
+      "overkill_rate": 0.0,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "balanced_acc": 1.0,
+      "recall_at_fpr5": 1.0,
+      "tp": 15,
+      "fn": 0,
+      "fp": 0,
+      "tn": 47,
+      "threshold_policy": {
+        "policy": "FPR<=0.05",
+        "fpr_at_tau": 0.0,
+        "tpr_at_tau": 1.0,
+        "tau_roc": 0.02897261641919613,
+        "margin_tiebreak": true,
+        "gap_low": 0.026747852563858032,
+        "gap_high": 0.02897261641919613,
+        "gap_log10_width": 0.03469879597238218
+      },
+      "per_class_recall": {
+        "bent_wire": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cable_swap": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "combined": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cut_inner_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cut_outer_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "missing_cable": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "missing_wire": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "poke_insulation": {
+          "n": 1,
+          "detected": 1,
+          "recall": 1.0
+        }
+      },
+      "best_epoch": 15,
+      "fold": 2,
+      "checkpoint": "weights\\fold2_best.pt",
+      "prep_stats": {
+        "n": 9579,
+        "disk_fail": 0,
+        "rot_fail": 0,
+        "disk_fail_rate": 0.0,
+        "rot_fail_rate": 0.0
+      }
+    },
+    {
+      "n": 61,
+      "n_NG": 15,
+      "n_OK": 46,
+      "tau": 0.0007325326904815567,
+      "auroc": 0.9956521739130435,
+      "auprc": 0.9866269841269841,
+      "miss_rate": 0.0,
+      "overkill_rate": 0.021739130434782608,
+      "recall": 1.0,
+      "precision": 0.9375,
+      "f1": 0.967741935483871,
+      "balanced_acc": 0.9891304347826086,
+      "recall_at_fpr5": 1.0,
+      "tp": 15,
+      "fn": 0,
+      "fp": 1,
+      "tn": 45,
+      "threshold_policy": {
+        "policy": "FPR<=0.05",
+        "fpr_at_tau": 0.021739130434782608,
+        "tpr_at_tau": 1.0,
+        "tau_roc": 0.001007981481961906,
+        "margin_tiebreak": true,
+        "gap_low": 0.0005323551595211029,
+        "gap_high": 0.001007981481961906,
+        "gap_log10_width": 0.2772510860294134
+      },
+      "per_class_recall": {
+        "bent_wire": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cable_swap": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "combined": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cut_inner_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cut_outer_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "missing_cable": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "missing_wire": {
+          "n": 1,
+          "detected": 1,
+          "recall": 1.0
+        },
+        "poke_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        }
+      },
+      "best_epoch": 16,
+      "fold": 3,
+      "checkpoint": "weights\\fold3_best.pt",
+      "prep_stats": {
+        "n": 9888,
+        "disk_fail": 0,
+        "rot_fail": 0,
+        "disk_fail_rate": 0.0,
+        "rot_fail_rate": 0.0
+      }
+    },
+    {
+      "n": 61,
+      "n_NG": 15,
+      "n_OK": 46,
+      "tau": 3.939449518643339e-05,
+      "auroc": 0.9985507246376811,
+      "auprc": 0.9958333333333333,
+      "miss_rate": 0.0,
+      "overkill_rate": 0.021739130434782608,
+      "recall": 1.0,
+      "precision": 0.9375,
+      "f1": 0.967741935483871,
+      "balanced_acc": 0.9891304347826086,
+      "recall_at_fpr5": 1.0,
+      "tp": 15,
+      "fn": 0,
+      "fp": 1,
+      "tn": 45,
+      "threshold_policy": {
+        "policy": "FPR<=0.05",
+        "fpr_at_tau": 0.021739130434782608,
+        "tpr_at_tau": 1.0,
+        "tau_roc": 0.0002778438793029636,
+        "margin_tiebreak": true,
+        "gap_low": 5.585605322266929e-06,
+        "gap_high": 0.0002778438793029636,
+        "gap_log10_width": 1.6967305887480444
+      },
+      "per_class_recall": {
+        "bent_wire": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cable_swap": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "combined": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cut_inner_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cut_outer_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "missing_cable": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "missing_wire": {
+          "n": 1,
+          "detected": 1,
+          "recall": 1.0
+        },
+        "poke_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        }
+      },
+      "best_epoch": 16,
+      "fold": 4,
+      "checkpoint": "weights\\fold4_best.pt",
+      "prep_stats": {
+        "n": 9888,
+        "disk_fail": 0,
+        "rot_fail": 0,
+        "disk_fail_rate": 0.0,
+        "rot_fail_rate": 0.0
+      }
+    }
+  ],
+  "aggregate": {
+    "auroc": {
+      "mean": 0.998840579710145,
+      "std": 0.001690130984013122,
+      "values": [
+        1.0,
+        1.0,
+        1.0,
+        0.9956521739130435,
+        0.9985507246376811
+      ]
+    },
+    "auprc": {
+      "mean": 0.9964920634920634,
+      "std": 0.005189808704229407,
+      "values": [
+        1.0,
+        1.0,
+        1.0,
+        0.9866269841269841,
+        0.9958333333333333
+      ]
+    },
+    "miss_rate": {
+      "mean": 0.0,
+      "std": 0.0,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "overkill_rate": {
+      "mean": 0.008695652173913044,
+      "std": 0.010649955403405121,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.021739130434782608,
+        0.021739130434782608
+      ]
+    },
+    "recall": {
+      "mean": 1.0,
+      "std": 0.0,
+      "values": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "precision": {
+      "mean": 0.975,
+      "std": 0.03061862178478973,
+      "values": [
+        1.0,
+        1.0,
+        1.0,
+        0.9375,
+        0.9375
+      ]
+    },
+    "f1": {
+      "mean": 0.9870967741935484,
+      "std": 0.0158031596308592,
+      "values": [
+        1.0,
+        1.0,
+        1.0,
+        0.967741935483871,
+        0.967741935483871
+      ]
+    },
+    "balanced_acc": {
+      "mean": 0.9956521739130434,
+      "std": 0.005324977701702585,
+      "values": [
+        1.0,
+        1.0,
+        1.0,
+        0.9891304347826086,
+        0.9891304347826086
+      ]
+    },
+    "recall_at_fpr5": {
+      "mean": 1.0,
+      "std": 0.0,
+      "values": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "tau": {
+      "mean": 0.008811201714735394,
+      "std": 0.011157272456088722,
+      "values": [
+        0.015333095956550013,
+        0.00011296696085171653,
+        0.02783801847060725,
+        0.0007325326904815567,
+        3.939449518643339e-05
+      ]
+    }
+  },
+  "per_class_recall": {
+    "bent_wire": {
+      "n_total": 11,
+      "recall_mean": 1.0,
+      "recall_std": 0.0,
+      "per_fold": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "cable_swap": {
+      "n_total": 10,
+      "recall_mean": 1.0,
+      "recall_std": 0.0,
+      "per_fold": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "combined": {
+      "n_total": 9,
+      "recall_mean": 1.0,
+      "recall_std": 0.0,
+      "per_fold": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "cut_inner_insulation": {
+      "n_total": 12,
+      "recall_mean": 1.0,
+      "recall_std": 0.0,
+      "per_fold": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "cut_outer_insulation": {
+      "n_total": 8,
+      "recall_mean": 1.0,
+      "recall_std": 0.0,
+      "per_fold": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "missing_cable": {
+      "n_total": 10,
+      "recall_mean": 1.0,
+      "recall_std": 0.0,
+      "per_fold": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "missing_wire": {
+      "n_total": 8,
+      "recall_mean": 1.0,
+      "recall_std": 0.0,
+      "per_fold": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "poke_insulation": {
+      "n_total": 8,
+      "recall_mean": 1.0,
+      "recall_std": 0.0,
+      "per_fold": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "wall_clock_sec": 4076.6
+}

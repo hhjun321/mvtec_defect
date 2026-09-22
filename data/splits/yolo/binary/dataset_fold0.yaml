@@ -1,0 +1,8 @@
+# SOP-MVTEC-CABLE-001 §4.3 — 분할 B fold 0 (binary)
+# 자동 생성. 직접 수정 금지 — src/data/make_splits.py 로 재생성.
+path: D:/project/mvtec_defect/data/yolo/binary
+train: D:/project/mvtec_defect/data/splits/yolo/binary/fold0_train.txt
+val: D:/project/mvtec_defect/data/splits/yolo/binary/fold0_val.txt
+test: D:/project/mvtec_defect/data/splits/yolo/binary/holdout.txt
+names:
+  0: defect

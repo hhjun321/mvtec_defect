@@ -1,0 +1,689 @@
+{
+  "exp_id": "EXP_C_mnv3s_384_fp32_all_20260921",
+  "track": "C",
+  "date": "2026-09-21",
+  "config": {
+    "arch": "mobilenet_v3_small",
+    "res": 384,
+    "fold": "all",
+    "epochs": 50,
+    "patience": 15,
+    "batch": 16,
+    "lr": 0.001,
+    "weight_decay": 0.0005,
+    "warmup_epochs": 3,
+    "aug": "medium",
+    "pretrained": true,
+    "class_weight": false,
+    "workers": 0,
+    "threads": 12,
+    "tag": "",
+    "seed": 42,
+    "n_folds": 5,
+    "track": "C_binary_classification",
+    "exp_id": "EXP_C_mnv3s_384_fp32_all_20260921",
+    "splits": {
+      "fold0": "e49ccc6119d2",
+      "fold1": "b1e3cb1d0b67",
+      "fold2": "402214d6780d",
+      "fold3": "c54e2e4cf088",
+      "fold4": "0a2aa51b57b0"
+    }
+  },
+  "hardware": {
+    "params": 1519906,
+    "params_M": 1.52,
+    "gflops": 0.357,
+    "fp32_size_MB": 6.08,
+    "latency_model_only": {
+      "warmup": 10,
+      "iters": 50,
+      "p50_ms": 28.01,
+      "p95_ms": 37.35,
+      "mean_ms": 29.07,
+      "min_ms": 20.32
+    },
+    "latency_end_to_end": {
+      "warmup": 10,
+      "iters": 50,
+      "p50_ms": 54.61,
+      "p95_ms": 75.19,
+      "mean_ms": 57.56,
+      "min_ms": 46.65
+    },
+    "note": "end_to_end = 1024px 원본 리사이즈 + 정규화 + 추론. 개발 머신(CPU) 측정치이며 타깃 하드웨어 수치가 아니다(§9.3)."
+  },
+  "folds": [
+    {
+      "n": 63,
+      "n_NG": 16,
+      "n_OK": 47,
+      "tau": 1.206922678566171e-08,
+      "auroc": 1.0,
+      "auprc": 1.0,
+      "miss_rate": 0.0,
+      "overkill_rate": 0.0,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "balanced_acc": 1.0,
+      "recall_at_fpr5": 1.0,
+      "tp": 16,
+      "fn": 0,
+      "fp": 0,
+      "tn": 47,
+      "threshold_policy": {
+        "policy": "FPR<=0.05",
+        "fpr_at_tau": 0.0,
+        "tpr_at_tau": 1.0,
+        "tau_roc": 3.421148875304425e-08,
+        "margin_tiebreak": true,
+        "gap_low": 4.257816321739938e-09,
+        "gap_high": 3.421148875304425e-08,
+        "gap_log10_width": 0.9049850509859195
+      },
+      "per_class_recall": {
+        "bent_wire": {
+          "n": 3,
+          "detected": 3,
+          "recall": 1.0
+        },
+        "cable_swap": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "combined": {
+          "n": 1,
+          "detected": 1,
+          "recall": 1.0
+        },
+        "cut_inner_insulation": {
+          "n": 3,
+          "detected": 3,
+          "recall": 1.0
+        },
+        "cut_outer_insulation": {
+          "n": 1,
+          "detected": 1,
+          "recall": 1.0
+        },
+        "missing_cable": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "missing_wire": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "poke_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        }
+      },
+      "best_epoch": 4,
+      "fold": 0,
+      "checkpoint": "weights\\fold0_best.pt",
+      "score_stats": {
+        "NG_min": 3.421148875304425e-08,
+        "NG_median": 9.289442095905542e-05,
+        "OK_max": 4.257816321739938e-09,
+        "OK_median": 1.0350133944347917e-11,
+        "separated": true,
+        "gap_log10": 0.9049850702285767
+      }
+    },
+    {
+      "n": 62,
+      "n_NG": 15,
+      "n_OK": 47,
+      "tau": 0.0012580125457142496,
+      "auroc": 1.0,
+      "auprc": 1.0,
+      "miss_rate": 0.0,
+      "overkill_rate": 0.0,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "balanced_acc": 1.0,
+      "recall_at_fpr5": 1.0,
+      "tp": 15,
+      "fn": 0,
+      "fp": 0,
+      "tn": 47,
+      "threshold_policy": {
+        "policy": "FPR<=0.05",
+        "fpr_at_tau": 0.0,
+        "tpr_at_tau": 1.0,
+        "tau_roc": 0.0028403170872479677,
+        "margin_tiebreak": true,
+        "gap_low": 0.0005571897490881383,
+        "gap_high": 0.0028403170872479677,
+        "gap_log10_width": 0.7073637086278589
+      },
+      "per_class_recall": {
+        "bent_wire": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cable_swap": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "combined": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cut_inner_insulation": {
+          "n": 3,
+          "detected": 3,
+          "recall": 1.0
+        },
+        "cut_outer_insulation": {
+          "n": 1,
+          "detected": 1,
+          "recall": 1.0
+        },
+        "missing_cable": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "missing_wire": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "poke_insulation": {
+          "n": 1,
+          "detected": 1,
+          "recall": 1.0
+        }
+      },
+      "best_epoch": 6,
+      "fold": 1,
+      "checkpoint": "weights\\fold1_best.pt",
+      "score_stats": {
+        "NG_min": 0.0028403170872479677,
+        "NG_median": 0.2999434769153595,
+        "OK_max": 0.0005571897490881383,
+        "OK_median": 2.582039996923413e-06,
+        "separated": true,
+        "gap_log10": 0.7073637247085571
+      }
+    },
+    {
+      "n": 62,
+      "n_NG": 15,
+      "n_OK": 47,
+      "tau": 0.0003904174912558799,
+      "auroc": 1.0,
+      "auprc": 1.0,
+      "miss_rate": 0.0,
+      "overkill_rate": 0.0,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "balanced_acc": 1.0,
+      "recall_at_fpr5": 1.0,
+      "tp": 15,
+      "fn": 0,
+      "fp": 0,
+      "tn": 47,
+      "threshold_policy": {
+        "policy": "FPR<=0.05",
+        "fpr_at_tau": 0.0,
+        "tpr_at_tau": 1.0,
+        "tau_roc": 0.0006356978556141257,
+        "margin_tiebreak": true,
+        "gap_low": 0.00023977714590728283,
+        "gap_high": 0.0006356978556141257,
+        "gap_log10_width": 0.42344295999813464
+      },
+      "per_class_recall": {
+        "bent_wire": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cable_swap": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "combined": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cut_inner_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cut_outer_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "missing_cable": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "missing_wire": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "poke_insulation": {
+          "n": 1,
+          "detected": 1,
+          "recall": 1.0
+        }
+      },
+      "best_epoch": 12,
+      "fold": 2,
+      "checkpoint": "weights\\fold2_best.pt",
+      "score_stats": {
+        "NG_min": 0.0006356978556141257,
+        "NG_median": 0.9987642765045166,
+        "OK_max": 0.00023977714590728283,
+        "OK_median": 2.759489858839004e-10,
+        "separated": true,
+        "gap_log10": 0.4234429597854614
+      }
+    },
+    {
+      "n": 61,
+      "n_NG": 15,
+      "n_OK": 46,
+      "tau": 0.017929142942168786,
+      "auroc": 1.0,
+      "auprc": 1.0,
+      "miss_rate": 0.0,
+      "overkill_rate": 0.0,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "balanced_acc": 1.0,
+      "recall_at_fpr5": 1.0,
+      "tp": 15,
+      "fn": 0,
+      "fp": 0,
+      "tn": 46,
+      "threshold_policy": {
+        "policy": "FPR<=0.05",
+        "fpr_at_tau": 0.0,
+        "tpr_at_tau": 1.0,
+        "tau_roc": 0.022310994565486908,
+        "margin_tiebreak": true,
+        "gap_low": 0.014407881535589695,
+        "gap_high": 0.022310994565486908,
+        "gap_log10_width": 0.18991880144941312
+      },
+      "per_class_recall": {
+        "bent_wire": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cable_swap": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "combined": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cut_inner_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cut_outer_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "missing_cable": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "missing_wire": {
+          "n": 1,
+          "detected": 1,
+          "recall": 1.0
+        },
+        "poke_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        }
+      },
+      "best_epoch": 3,
+      "fold": 3,
+      "checkpoint": "weights\\fold3_best.pt",
+      "score_stats": {
+        "NG_min": 0.022310994565486908,
+        "NG_median": 0.27746134996414185,
+        "OK_max": 0.014407881535589695,
+        "OK_median": 0.0003286181599833071,
+        "separated": true,
+        "gap_log10": 0.18991881608963013
+      }
+    },
+    {
+      "n": 61,
+      "n_NG": 15,
+      "n_OK": 46,
+      "tau": 0.9696302124435754,
+      "auroc": 0.9985507246376811,
+      "auprc": 0.9958333333333333,
+      "miss_rate": 0.0,
+      "overkill_rate": 0.021739130434782608,
+      "recall": 1.0,
+      "precision": 0.9375,
+      "f1": 0.967741935483871,
+      "balanced_acc": 0.9891304347826086,
+      "recall_at_fpr5": 1.0,
+      "tp": 15,
+      "fn": 0,
+      "fp": 1,
+      "tn": 45,
+      "threshold_policy": {
+        "policy": "FPR<=0.05",
+        "fpr_at_tau": 0.021739130434782608,
+        "tpr_at_tau": 1.0,
+        "tau_roc": 0.9716860055923462,
+        "margin_tiebreak": true,
+        "gap_low": 0.9675787687301636,
+        "gap_high": 0.9716860055923462,
+        "gap_log10_width": 0.001839617772501838
+      },
+      "per_class_recall": {
+        "bent_wire": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cable_swap": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "combined": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cut_inner_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "cut_outer_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "missing_cable": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        },
+        "missing_wire": {
+          "n": 1,
+          "detected": 1,
+          "recall": 1.0
+        },
+        "poke_insulation": {
+          "n": 2,
+          "detected": 2,
+          "recall": 1.0
+        }
+      },
+      "best_epoch": 15,
+      "fold": 4,
+      "checkpoint": "weights\\fold4_best.pt",
+      "score_stats": {
+        "NG_min": 0.9716860055923462,
+        "NG_median": 0.9999454021453857,
+        "OK_max": 0.9755938053131104,
+        "OK_median": 0.14179204404354095,
+        "separated": false,
+        "gap_log10": null
+      }
+    }
+  ],
+  "aggregate": {
+    "auroc": {
+      "mean": 0.9997101449275363,
+      "std": 0.0005797101449275476,
+      "values": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9985507246376811
+      ]
+    },
+    "auprc": {
+      "mean": 0.9991666666666668,
+      "std": 0.001666666666666661,
+      "values": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9958333333333333
+      ]
+    },
+    "miss_rate": {
+      "mean": 0.0,
+      "std": 0.0,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "overkill_rate": {
+      "mean": 0.004347826086956522,
+      "std": 0.008695652173913044,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.021739130434782608
+      ]
+    },
+    "recall": {
+      "mean": 1.0,
+      "std": 0.0,
+      "values": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "precision": {
+      "mean": 0.9875,
+      "std": 0.025,
+      "values": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9375
+      ]
+    },
+    "f1": {
+      "mean": 0.9935483870967742,
+      "std": 0.0129032258064516,
+      "values": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.967741935483871
+      ]
+    },
+    "balanced_acc": {
+      "mean": 0.9978260869565216,
+      "std": 0.004347826086956541,
+      "values": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9891304347826086
+      ]
+    },
+    "recall_at_fpr5": {
+      "mean": 1.0,
+      "std": 0.0,
+      "values": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "tau": {
+      "mean": 0.19784155949838822,
+      "std": 0.3859532419212528,
+      "values": [
+        1.206922678566171e-08,
+        0.0012580125457142496,
+        0.0003904174912558799,
+        0.017929142942168786,
+        0.9696302124435754
+      ]
+    }
+  },
+  "per_class_recall": {
+    "bent_wire": {
+      "n_total": 11,
+      "recall_mean": 1.0,
+      "recall_std": 0.0,
+      "per_fold": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "cable_swap": {
+      "n_total": 10,
+      "recall_mean": 1.0,
+      "recall_std": 0.0,
+      "per_fold": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "combined": {
+      "n_total": 9,
+      "recall_mean": 1.0,
+      "recall_std": 0.0,
+      "per_fold": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "cut_inner_insulation": {
+      "n_total": 12,
+      "recall_mean": 1.0,
+      "recall_std": 0.0,
+      "per_fold": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "cut_outer_insulation": {
+      "n_total": 8,
+      "recall_mean": 1.0,
+      "recall_std": 0.0,
+      "per_fold": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "missing_cable": {
+      "n_total": 10,
+      "recall_mean": 1.0,
+      "recall_std": 0.0,
+      "per_fold": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "missing_wire": {
+      "n_total": 8,
+      "recall_mean": 1.0,
+      "recall_std": 0.0,
+      "per_fold": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "poke_insulation": {
+      "n_total": 8,
+      "recall_mean": 1.0,
+      "recall_std": 0.0,
+      "per_fold": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "wall_clock_sec": 4141.5,
+  "rescored": {
+    "note": "체크포인트로 val 점수 재산출, τ에 마진 tie-break 적용",
+    "scores_saved": [
+      "scores_fold0.json",
+      "scores_fold1.json",
+      "scores_fold2.json",
+      "scores_fold3.json",
+      "scores_fold4.json"
+    ]
+  }
+}

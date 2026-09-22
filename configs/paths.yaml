@@ -1,0 +1,24 @@
+# 공통 경로 설정 — SOP-MVTEC-CABLE-001 §5
+project_root: D:/project/mvtec_defect
+category: cable
+source_root: D:/project/mvtec_defect/mvtec/cable   # 원본, 읽기 전용
+
+data_root: D:/project/mvtec_defect/data
+yolo_root: D:/project/mvtec_defect/data/yolo
+splits_dir: D:/project/mvtec_defect/data/splits
+classes_file: D:/project/mvtec_defect/data/classes.yaml
+
+reports_dir: D:/project/mvtec_defect/reports
+runs_dir: D:/project/mvtec_defect/runs
+
+image_size: 1024          # 원본 해상도
+seed: 42                  # 전역 시드 (SOP §11)
+
+# §4.2 라벨 변환 파라미터
+min_component_area_ratio: 0.0002   # 0.02% — 이보다 작은 연결요소는 노이즈로 제거
+mask_binarize_threshold: 127
+connectivity: 8
+
+# §4.3 분할 파라미터
+n_folds: 5
+holdout_per_defect_class: 2

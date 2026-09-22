@@ -1,0 +1,57 @@
+# 주의: .gitignore 는 인라인 주석을 지원하지 않는다.
+# 주석은 반드시 줄 맨 앞에서 시작해야 한다.
+
+# ---- 데이터셋 (MVTec AD, CC BY-NC-SA 4.0 - 재배포 금지) ----
+mvtec/
+_stage_cable/
+
+# ---- 재생성 가능한 파생물 ----
+# build_cache.py 로 재생성
+data/cache/
+# masks_to_yolo.py 로 재생성 (원본 이미지 하드링크 포함)
+data/yolo/
+# masks_to_yolo.py 로 재생성 (MVTec 파생 이미지)
+reports/label_check/
+
+# ---- 모델 / 학습 가중치 / 이진 산출물 ----
+# 지표(metrics.json, scores_*.json, robustness.json)와 설정은 보존한다
+runs/**/weights/
+weights/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.engine
+*.plan
+*.tflite
+*.pb
+*.h5
+*.npy
+*.npz
+*.bin
+*.xml.bin
+*.blob
+*.rknn
+
+# ---- 환경 ----
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# ---- OS / 편집기 ----
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# ---- 임시 ----
+*.log
+*.tmp
+nohup.out

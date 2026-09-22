@@ -1,0 +1,15 @@
+# SOP-MVTEC-CABLE-001 §4.3 — 분할 B fold 0 (multi)
+# 자동 생성. 직접 수정 금지 — src/data/make_splits.py 로 재생성.
+path: D:/project/mvtec_defect/data/yolo/multi
+train: D:/project/mvtec_defect/data/splits/yolo/multi/fold0_train.txt
+val: D:/project/mvtec_defect/data/splits/yolo/multi/fold0_val.txt
+test: D:/project/mvtec_defect/data/splits/yolo/multi/holdout.txt
+names:
+  0: bent_wire
+  1: cable_swap
+  2: combined
+  3: cut_inner_insulation
+  4: cut_outer_insulation
+  5: missing_cable
+  6: missing_wire
+  7: poke_insulation

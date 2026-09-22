@@ -1,0 +1,37 @@
+# MVTec AD `cable` 클래스 ID 매핑
+# SOP-MVTEC-CABLE-001 §4.2 — 이 매핑은 고정이다.
+# 변경 시 모든 라벨을 재생성하고 기존 실험을 전부 재실행해야 한다.
+version: 1
+frozen_at: 2026-09-21
+
+# 다중 클래스 검출/분류용 (8종 불량)
+multi:
+  0: bent_wire
+  1: cable_swap
+  2: combined
+  3: cut_inner_insulation
+  4: cut_outer_insulation
+  5: missing_cable
+  6: missing_wire
+  7: poke_insulation
+
+# 이진 판정용 (OK/NG) — 검출 시 불량 영역 단일 클래스
+binary:
+  0: defect
+
+# 이미지 레벨 판정 라벨 (분류 트랙)
+image_label:
+  0: OK    # good
+  1: NG    # 그 외 전부
+
+# 구조적 결함 클래스 — 패치 단위 이상탐지가 불리할 것으로 가설된 군 (SOP §3.2)
+structural_defects:
+  - cable_swap
+  - missing_cable
+  - missing_wire
+
+# 해상도 축소에 민감할 것으로 예상되는 클래스 (SOP §3.2)
+small_defect_watch:
+  - poke_insulation        # 최소 면적 0.14%
+  - cut_outer_insulation   # 최소 면적 0.44%
+  - missing_wire           # 최소 bbox 폭/높이 중앙값 16.8 / 17.1%
